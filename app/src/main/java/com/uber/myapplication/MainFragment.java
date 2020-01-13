@@ -12,8 +12,8 @@ import androidx.fragment.app.Fragment;
 @SuppressWarnings("UnusedVariable") // This is sample code
 public class MainFragment extends Fragment {
 
-  @NonNull private Object mOnCreateViewInitialisedField;
   @NonNull private Object onAttachInitialisedField;
+  @NonNull private Object mOnCreateViewInitialisedField;
   @NonNull private Object mOnCreateInitialisedField;
 
   @Override
@@ -36,5 +36,9 @@ public class MainFragment extends Fragment {
   public void onAttach(Context context) {
     super.onAttach(context);
     onAttachInitialisedField = new Object();
+    // I have three more empty line after this comment before I commit the code.
+    // Then due to Google Java Format Github hooks, it will only keep one line.
+
+    // end test
   }
 }
