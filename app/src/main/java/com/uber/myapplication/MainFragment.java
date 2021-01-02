@@ -41,4 +41,8 @@ public class MainFragment extends Fragment {
 
     // end test
   }
+
+  private int test() {
+    throw new RuntimeException();
+  }
 }
