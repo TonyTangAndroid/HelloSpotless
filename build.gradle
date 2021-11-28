@@ -15,8 +15,8 @@ plugins {
   id 'com.diffplug.spotless' version '5.9.0'
 }
 
-apply from: "${rootDir}/config/spotless.gradle"
-apply from: "${rootDir}/config/google_java_format.gradle"
+apply from: "${rootDir}/gradle/spotless.gradle"
+apply from: "${rootDir}/gradle/google_java_format.gradle"
 
 allprojects {
   repositories {
