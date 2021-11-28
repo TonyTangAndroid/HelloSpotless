@@ -40,7 +40,7 @@ public class MainFragment extends Fragment {
     // Then due to Google Java Format Github hooks, it will only keep one line.
     // This confirms that Google Java Format works.
 
-    // end test
+    // end test.
   }
 
   private int test() {
