@@ -1,6 +1,6 @@
 buildscript {
   repositories {
-    jcenter()
+    mavenCentral()
     google()
     maven { url 'https://jitpack.io' }
   }
@@ -20,7 +20,7 @@ apply from: "${rootDir}/gradle/google_java_format.gradle"
 
 allprojects {
   repositories {
-    jcenter()
+    mavenCentral()
     google()
     maven { url 'https://jitpack.io' }
   }
