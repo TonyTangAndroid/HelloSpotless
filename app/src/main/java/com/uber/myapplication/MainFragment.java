@@ -38,6 +38,7 @@ public class MainFragment extends Fragment {
     onAttachInitialisedField = new Object();
     // I have three more empty line after this comment before I commit the code.
     // Then due to Google Java Format Github hooks, it will only keep one line.
+    // This confirms that Google Java Format works.
 
     // end test
   }
