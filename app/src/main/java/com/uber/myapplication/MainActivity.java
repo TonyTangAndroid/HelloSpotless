@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
   static int checkModel(@Nullable String s) {
     if (!StringUtils.isEmptyOrNull(s)) {
 
-      return s.hashCode(); // two line above
+      return s.hashCode(); // three line above
     }
     return 1; // there are 3 line after this
   }
