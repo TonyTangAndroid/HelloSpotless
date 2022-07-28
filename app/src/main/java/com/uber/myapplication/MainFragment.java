@@ -41,6 +41,7 @@ public class MainFragment extends Fragment {
     // This confirms that Google Java Format works.
 
     // end test.
+
     // If there is only one space line above, it means that it works.
   }
 
