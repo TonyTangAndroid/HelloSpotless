@@ -1,5 +1,4 @@
 plugins {
-  id 'java-library'
   id 'application'
 }
 java {
@@ -9,45 +8,6 @@ java {
 ext {
   javaMainClass = 'com.baeldung.gradle.exec.MainClass'
 }
-
-task runWithJavaExec(type: JavaExec) {
-  group = "Execution"
-  description = "Run the main class with JavaExecTask"
-  classpath = sourceSets.main.runtimeClasspath
-  main = javaMainClass
-}
-
-task runWithExecJarOnClassPath(type: Exec) {
-  dependsOn jar
-  group = "Execution"
-  description = "Run the mainClass from the output jar in classpath with ExecTask"
-  commandLine "java", "-classpath", jar.archiveFile.get(), javaMainClass
-}
-
-jar {
-  manifest {
-    attributes(
-        "Main-Class": javaMainClass
-    )
-  }
-}
-
-task propertyTypes(){
-  doLast{
-    if (project.hasProperty("args")) {
-      println "Our input argument with project property ["+project.getProperty("args")+"]"
-    }
-    println "Our input argument with system property ["+System.getProperty("args")+"]"
-  }
-}
-
-task runWithExecJarExecutable(type: Exec) {
-  dependsOn jar
-  group = "Execution"
-  description = "Run the output executable jar with ExecTask"
-  commandLine "java", "-jar", jar.archiveFile.get()
-}
-
 
 application {
   mainClassName = javaMainClass
