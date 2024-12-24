@@ -24,7 +24,8 @@ import org.utilities.StringUtils;
 /** Sample activity. */
 @SuppressWarnings("UnusedVariable") // This is sample code
 public class MainActivity extends AppCompatActivity {
-  @NonNull private Object mOnCreateInitialiedField;
+  @NonNull
+  private Object mOnCreateInitialiedField;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {

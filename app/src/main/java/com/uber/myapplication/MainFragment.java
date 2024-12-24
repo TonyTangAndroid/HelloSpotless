@@ -12,9 +12,14 @@ import androidx.fragment.app.Fragment;
 @SuppressWarnings("UnusedVariable") // This is sample code
 public class MainFragment extends Fragment {
 
-  @NonNull private Object onAttachInitialisedField;
-  @NonNull private Object mOnCreateViewInitialisedField;
-  @NonNull private Object mOnCreateInitialisedField;
+  @NonNull
+  private Object onAttachInitialisedField;
+
+  @NonNull
+  private Object mOnCreateViewInitialisedField;
+
+  @NonNull
+  private Object mOnCreateInitialisedField;
 
   @Override
   public void onCreate(@Nullable Bundle savedInstanceState) {

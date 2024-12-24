@@ -4,9 +4,14 @@ import androidx.annotation.NonNull;
 
 public class TestGoogleJavaFormatUtil {
 
-  @NonNull private Object onAttachInitialisedField;
-  @NonNull private Object mOnCreateViewInitialisedField;
-  @NonNull private Object mOnCreateInitialisedField;
+  @NonNull
+  private Object onAttachInitialisedField;
+
+  @NonNull
+  private Object mOnCreateViewInitialisedField;
+
+  @NonNull
+  private Object mOnCreateInitialisedField;
 
   private int test(
       int a,
