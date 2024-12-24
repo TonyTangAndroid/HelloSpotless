@@ -16,3 +16,5 @@ dependencyResolutionManagement {
 rootProject.name = "HelloGJF"
 include ':app'
 include ':javaDemo'
+include ':kotlinDemo'
+include ':mixedDemo'
