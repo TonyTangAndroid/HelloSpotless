@@ -9,10 +9,11 @@ spotless {
 
   java {
     target fileTree('.') {
-      target 'src/*/java/**/*.java'
+      include '**/*.java'
+      exclude '**/build/**', '**/build-*/**'
     }
     toggleOffOn()
-    googleJavaFormat()
+    palantirJavaFormat("2.50.0").style("GOOGLE").formatJavadoc(true)
     removeUnusedImports()
     trimTrailingWhitespace()
     endWithNewline()
