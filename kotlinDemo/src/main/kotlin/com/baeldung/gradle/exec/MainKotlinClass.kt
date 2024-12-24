@@ -6,6 +6,8 @@ class MainKotlinClass {
     @JvmStatic
     fun main(args: Array<String>) {
       println("Gradle command line arguments kotlin example."
+
+
       )
 
       for (arg in args) {
