@@ -4,21 +4,22 @@ set -e
 
 REPO_ROOT_DIR="$(git rev-parse --show-toplevel)"
 
-#Spotless enforcer
+# Spotless enforcer
 echo "Running spotless"
 ./gradlew spotlessApply
-files=$((git diff --cached --name-only --diff-filter=ACMR | grep -Ei "\.gradle$") || true)
-if [ ! -z "${files}" ]; then
-    comma_files=$(echo "$files" | paste -s -d "," -)
-    git add $(echo "$files" | paste -s -d " " -)
-fi
-files=$((git diff --cached --name-only --diff-filter=ACMR | grep -Ei "\.java$") || true)
-if [ ! -z "${files}" ]; then
-    comma_files=$(echo "$files" | paste -s -d "," -)
-    git add $(echo "$files" | paste -s -d " " -)
-fi
-files=$((git diff --cached --name-only --diff-filter=ACMR | grep -Ei "\.kt") || true)
-if [ ! -z "${files}" ]; then
-    comma_files=$(echo "$files" | paste -s -d "," -)
-    git add $(echo "$files" | paste -s -d " " -)
-fi
+
+# Function to handle file additions
+process_files() {
+    local pattern=$1
+    local files
+
+    files=$(git diff --cached --name-only --diff-filter=ACMR | grep -Ei "$pattern" || true)
+    if [ -n "$files" ]; then
+        git add $files
+    fi
+}
+
+# Process specific file types
+process_files "\.gradle$"
+process_files "\.java$"
+process_files "\.kt$"
