@@ -16,7 +16,7 @@ dependencyResolutionManagement {
 // settings.gradle
 apply from: "${rootDir}/gradle/dependencies.gradle"
 
-println "Kotlin version: ${versions.kotlin}"
+println "testCore version: ${testCore}"
 
 rootProject.name = "HelloGJF"
 include ':app'
