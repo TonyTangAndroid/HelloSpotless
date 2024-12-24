@@ -7,8 +7,7 @@ public class StringUtils {
   /** test commit */
   public static boolean isEmptyOrNull(@Nullable final CharSequence value) {
 
-    // xxx
-    return value == null
-        || value.length() == 0;
+    // xxxx
+    return value == null || value.length() == 0;
   }
 }

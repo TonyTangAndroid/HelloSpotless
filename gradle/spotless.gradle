@@ -6,4 +6,15 @@ spotless {
     trimTrailingWhitespace()
     endWithNewline()
   }
+
+  java {
+    target fileTree('.') {
+      target 'src/*/java/**/*.java'
+    }
+    toggleOffOn()
+    googleJavaFormat()
+    removeUnusedImports()
+    trimTrailingWhitespace()
+    endWithNewline()
+  }
 }
