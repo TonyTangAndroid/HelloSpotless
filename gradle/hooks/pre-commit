@@ -2,18 +2,18 @@
 
 set -e
 
-REPO_ROOT_DIR="$(git rev-parse --show-toplevel)"
-
-# Spotless enforcer
-echo "Running spotless"
-./gradlew spotlessApply
-
-# Find all files with changes and stage them
-changed_files=$(git diff --cached --name-only --diff-filter=ACMR)
+# Get the list of changed files for Kotlin, Java, and Gradle files
+changed_files=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(kt|java|gradle)$' | tr '\n' ',')
 
 if [ -n "$changed_files" ]; then
-    echo "Processing changed files..."
-    git add $changed_files
+    echo "Running spotless on changed Kotlin, Java, and Gradle files..."
+
+    # Run spotlessApply only on the changed files
+    ./gradlew spotlessApply -PspotlessFiles="$changed_files"
+
+    # Re-stage the potentially modified files
+    echo "Adding changed files to git staging..."
+    git add $(echo "$changed_files" | tr ',' ' ')
 else
-    echo "No changes to process."
+    echo "No changed Kotlin, Java, or Gradle files to be formatted."
 fi
