@@ -7,11 +7,10 @@ class MainKotlinClass {
     fun main(args: Array<String>) {
       println("Gradle command line arguments kotlin example."
 
-
       )
 
       for (arg in args) {
-        println("Got argument [$arg]")
+        println("Got argument [$arg].")
       }
     }
   }
