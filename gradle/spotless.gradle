@@ -18,4 +18,8 @@ spotless {
     trimTrailingWhitespace()
     endWithNewline()
   }
+
+  kotlin {
+    ktfmt()    // has its own section below
+  }
 }
