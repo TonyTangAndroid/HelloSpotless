@@ -20,6 +20,9 @@ spotless {
   }
 
   kotlin {
-    ktfmt()    // has its own section below
+    target fileTree('.') {
+      include '**/*.kt'
+    }
+    ktfmt("0.53").googleStyle()
   }
 }
