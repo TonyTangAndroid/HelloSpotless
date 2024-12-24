@@ -8,18 +8,12 @@ REPO_ROOT_DIR="$(git rev-parse --show-toplevel)"
 echo "Running spotless"
 ./gradlew spotlessApply
 
-# Function to handle file additions
-process_files() {
-    local pattern=$1
-    local files
+# Find all files with changes and stage them
+changed_files=$(git diff --cached --name-only --diff-filter=ACMR)
 
-    files=$(git diff --cached --name-only --diff-filter=ACMR | grep -Ei "$pattern" || true)
-    if [ -n "$files" ]; then
-        git add $files
-    fi
-}
-
-# Process specific file types
-process_files "\.gradle$"
-process_files "\.java$"
-process_files "\.kt$"
+if [ -n "$changed_files" ]; then
+    echo "Processing changed files..."
+    git add $changed_files
+else
+    echo "No changes to process."
+fi
